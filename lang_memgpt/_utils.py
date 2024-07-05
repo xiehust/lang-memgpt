@@ -4,7 +4,8 @@ from functools import lru_cache
 
 import langsmith
 from langchain_core.runnables import RunnableConfig
-from langchain_fireworks import FireworksEmbeddings
+# from langchain_fireworks import FireworksEmbeddings
+from langchain_community.embeddings import BedrockEmbeddings
 from pinecone import Pinecone
 
 from lang_memgpt import _schemas as schemas
@@ -35,7 +36,8 @@ def ensure_configurable(config: RunnableConfig) -> schemas.GraphConfig:
 
 @lru_cache
 def get_embeddings():
-    return FireworksEmbeddings(model="nomic-ai/nomic-embed-text-v1.5")
+    # return FireworksEmbeddings(model="nomic-ai/nomic-embed-text-v1.5")
+    return BedrockEmbeddings(model_id='amazon.titan-embed-text-v2:0')
 
 
 __all__ = ["ensure_configurable"]

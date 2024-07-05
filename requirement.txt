@@ -1,0 +1,9 @@
+langchain_community
+langchain_aws
+langchain_openai
+langchain
+python-dotenv
+langgraph
+httpx
+pydantic_settings
+ipywidgets
